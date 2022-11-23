@@ -1,0 +1,11 @@
+.showcase {
+  background-color: var(--color-tertiary);
+  grid-column: container-start / container-end;
+  // background-image: linear-gradient(
+  //     var(--color-tertiary-m),
+  //     var(--color-tertiary-m)
+  //   ),
+  //   url("../img/showcase/showcase-bg.jpg");
+  background-color: var(--color-tertiary-m);
+  height: 100vh;
+}

@@ -1,0 +1,129 @@
+.header {
+  grid-column: container-start / container-end;
+  background: url("img/");
+
+  &.open .header__menu--line{
+    background-color: transparent;
+  }
+  &.open .header__menu--line::before{
+    transform: rotate(45deg);
+  }
+  &.open .header__menu--line::after{
+    transform: rotate(-45deg);
+  }
+  &.open .header__menu--line::before,
+  &.open .header__menu--line::after{
+    top: 0;
+  }
+
+  &__overlay{
+    background-color: var(--color-tertiary);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    display: none;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  &__nav{
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 7rem;
+    line-height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+
+    &--logo{
+        padding: 1rem;
+        padding-top: 4rem;
+        img{
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    &--lists{
+        display: flex;
+        &__item{
+            a:link,
+            a:visited{
+                margin-right: 2vw;
+                padding: 0 1.5rem;
+                display: block;
+                position: relative;
+                transform-style: preserve-3d;
+                transform-origin: top;
+                transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+            a:link::after,
+            a:visited::after{
+                position: absolute;
+                content: attr(data-text);
+                padding: inherit;
+                left: 0;
+                bottom: -100%;
+                transform: rotateX(-90deg);
+                transform-origin: top;
+                background-color: var(--color-tertiary);
+            }
+            a:hover,
+            a:active{
+                transform: rotateX(90deg);
+            }  
+        } 
+        
+        &__item:nth-child(odd){
+            animation: downward 1s forwards;
+        }
+        &__item:nth-child(even){
+            animation: upward 1s forwards;
+        }
+
+        &__toggle-container{
+            display: flex;
+            align-items: center;
+
+            input[type="checkbox"]{
+                width: 6rem;
+                height: 3rem;
+                position: relative;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-color: var(--color-quinary);
+                border-radius: 2.5rem;
+                box-shadow: inset 0 0 0.6rem rgb(158, 157, 157);
+            }
+            input:checked[type="checkbox"]{
+                background-color: greenyellow;
+            }
+            input:not(:checked)[type="checkbox"]{
+                background-color: var(--color-tertiary);
+            }
+        }
+    }
+  }
+}
+
+@keyframes upward {
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes downward {
+    from{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
