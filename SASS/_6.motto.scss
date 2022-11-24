@@ -1,0 +1,29 @@
+.motto{
+  grid-column: container-start / container-end;
+  background: url("../img/motto/motto-bg.jpg");
+  @extend %bg;
+  @extend %sec-padding;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3vw;
+
+  &__content{
+    display: grid;
+    grid-row-gap: 4vh;
+    background-color: var(--color-tertiary-m);
+    padding: 2rem;
+
+    &--title{
+      @extend %sec-heading;
+    }
+
+    &--para{
+      @extend %sec-para;
+    }
+
+    &--links{
+      position: relative;
+    }
+  }
+}
