@@ -5,8 +5,8 @@
 
   &__content{
     display: grid;
-    grid-row-gap: 4vh;
-    padding: 2rem;
+    grid-gap: 2vw;
+    padding: 2rem 4rem;
 
     &--title{
       @extend %sec-heading;
@@ -38,54 +38,120 @@
 
     &--para{
       @extend %sec-para;
-      padding: 2vh 5vw;
+      padding: 1vh 4vw;
       background-color: var(--color-primary-m);
       text-align: center;
     }
+
+    &--link:link,
+    &--link:active{
+      position: relative;
+      place-self: start;
+      background: transparent;
+      padding: 1rem 2rem;
+      transition: all 0.5s ease-in-out;
+      overflow: hidden;
+
+      span{
+        position: absolute;
+        display: block;
+      }
+
+      span:first-child{
+        width: 100%;
+        height: 0.5rem;
+        background: linear-gradient(90deg, transparent, var(--color-primary));
+        top: 0;
+        left: -100%;
+        animation: border1 1s linear infinite;
+        animation-delay: 0s;
+      }
+
+      span:nth-child(2){
+        width: 0.5rem;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, var(--color-primary));
+        top: -100%;
+        right: 0;
+        animation: border2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+
+      span:nth-child(3){
+        width: 100%;
+        height: 0.5rem;
+        background: linear-gradient(270deg, transparent, var(--color-primary));
+        bottom: 0;
+        right: -100%;
+        animation: border3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+
+      span:nth-child(4){
+        width: 0.5rem;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, var(--color-primary));
+        bottom: -100%;
+        left: 0;
+        animation: border4 1s linear infinite;
+        animation-delay: 0.1s;
+      }
+    }
+
+    &--link:hover,
+    &--link:visited{
+      background-color: var(--color-primary-m);
+    }
   }
 
-  &__content:nth-child(1){
-    background: url("../img/features/features-1.jpg");
-    @extend %bg;
+  @include media-small{
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  }
+}
+
+@keyframes border1 {
+  0%{
+    left: -100%;
   }
 
-  &__content:nth-child(2){
-    background: url("../img/features/features-2.jpg");
-    @extend %bg;
+  100%{
+    left: 100%;
+  }
+}
+
+@keyframes border2 {
+  0%{
+    top: 0;
   }
 
-  &__content:nth-child(3){
-    background: url("../img/features/features-3.jpg");
-    @extend %bg;
+  100%{
+    top: 100%;
+  }
+}
+
+@keyframes border3 {
+  0%{
+    right: -100%;
   }
 
-  &__content:nth-child(4){
-    background: url("../img/features/features-4.jpg");
-    @extend %bg;
+  100%{
+    right: 100%;
+  }
+}
+
+@keyframes border4 {
+  0%{
+    bottom: -100%;
   }
 
-  &__content:nth-child(5){
-    background: url("../img/features/features-5.jpg");
-    @extend %bg;
+  100%{
+    bottom: 100%;
   }
+}
 
-  &__content:nth-child(6){
-    background: url("../img/features/features-6.jpg");
+@for $img from 1 through 9 {
+  .features__content:nth-child(#{$img}) {
+    background-image: url("../img/features/features-#{$img}.jpg");
     @extend %bg;
-  }
-
-  &__content:nth-child(7){
-    background: url("../img/features/features-7.jpg");
-    @extend %bg;
-  }
-
-  &__content:nth-child(8){
-    background: url("../img/features/features-8.jpg");
-    @extend %bg;
-  }
-
-  &__content:nth-child(9){
-    background: url("../img/features/features-9.jpg");
-    @extend %bg;
-  }
+  } 
 }
