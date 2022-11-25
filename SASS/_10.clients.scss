@@ -1,5 +1,80 @@
-.clients{
-  background-color: var(--color-quinary);
+.clients {
+  background: linear-gradient(
+      var(--color-quaternary-m),
+      var(--color-quaternary-m)
+    ),
+    url(../img/clients/clients-bg.jpg);
   grid-column: container-start / container-end;
-  height: 600px;
+  @extend %sec-padding;
+  @extend %bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    @extend %sec-heading;
+    text-align: center;
+    font-weight: font-weight(font-weight-medium) !important;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    align-self: center;
+  }
+
+  &__title::before,
+  &__title::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 0.2rem;
+    background-color: var(--color-quinary);
+    top: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__title::before{
+    right: 0;
+
+  }
+
+  &__title::after{
+    left: 0;
+  }
+
+  &__title:hover::before,
+  &__title:active::before{
+    width: 100%;
+    height: 0.2rem;
+    top: 100%;
+  }
+
+  &__title:hover::after,
+  &__title:active::after{
+    width: 100%;
+    height: 0.2rem;
+  }
+
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    &--img{
+      width: 20rem;
+      padding: 2rem;
+      margin: 2rem;
+      background-color: var(--color-quinary-m);
+      border-radius: 2rem;
+      transition: all 0.5s ease-in-out;
+  
+      img{
+        width: 100%;
+      }
+    }
+
+    &--img:hover{
+      transform: scale(1.2);
+    }
+  }
+
 }

@@ -1,5 +1,7 @@
 .register{
-  background-color: var(--color-secondary);
+  background: url(../img/register/register-bg.jpg);
   grid-column: container-start / container-end;
+  @extend %bg;
+  @extend %sec-padding;
   height: 600px;
 }

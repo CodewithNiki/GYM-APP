@@ -840,47 +840,161 @@ i {
 }
 
 .testimonials {
-  background-color: var(--color-quaternary);
   grid-column: container-start / container-end;
+  background: linear-gradient(var(--color-tertiary-m), var(--color-tertiary-m)), url("../img/testimonials/testimonials-bg.jpg");
+}
+
+.testimonials__title {
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.testimonials__content {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.testimonials__content--text {
+  border: 0.1rem solid var(--color-quinary);
+  max-width: 60rem;
+  text-align: center;
+  padding: 2vh 1vw;
+  display: none;
+  margin: 0 auto;
+}
+
+.testimonials__content--text__para {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.testimonials__content--text.show {
+  display: block;
+}
+
+.testimonials__images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh;
+}
+
+.testimonials__images img {
+  height: calc(7rem + 6vw);
+  width: calc(7rem + 6vw);
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 2vh 2vw;
+  opacity: 0.2;
+  border: 0.2rem solid var(--color-quinary);
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+.testimonials__images img.indicator {
+  opacity: 1;
 }
 
 .clients {
-  background-color: var(--color-quinary);
+  background: linear-gradient(var(--color-quaternary-m), var(--color-quaternary-m)), url(../img/clients/clients-bg.jpg);
   grid-column: container-start / container-end;
-  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clients__title {
+  text-align: center;
+  font-weight: 500 !important;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  align-self: center;
+}
+
+.clients__title::before, .clients__title::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0.2rem;
+  background-color: var(--color-quinary);
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.clients__title::before {
+  right: 0;
+}
+
+.clients__title::after {
+  left: 0;
+}
+
+.clients__title:hover::before, .clients__title:active::before {
+  width: 100%;
+  height: 0.2rem;
+  top: 100%;
+}
+
+.clients__title:hover::after, .clients__title:active::after {
+  width: 100%;
+  height: 0.2rem;
+}
+
+.clients__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.clients__content--img {
+  width: 20rem;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: var(--color-quinary-m);
+  border-radius: 2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.clients__content--img img {
+  width: 100%;
+}
+
+.clients__content--img:hover {
+  transform: scale(1.2);
 }
 
 .register {
-  background-color: var(--color-secondary);
+  background: url(../img/register/register-bg.jpg);
   grid-column: container-start / container-end;
   height: 600px;
 }
 
-.showcase, .motto, .features__content:nth-child(1), .features__content:nth-child(2), .features__content:nth-child(3), .features__content:nth-child(4), .features__content:nth-child(5), .features__content:nth-child(6), .features__content:nth-child(7), .features__content:nth-child(8), .features__content:nth-child(9) {
+.showcase, .motto, .features__content:nth-child(1), .features__content:nth-child(2), .features__content:nth-child(3), .features__content:nth-child(4), .features__content:nth-child(5), .features__content:nth-child(6), .features__content:nth-child(7), .features__content:nth-child(8), .features__content:nth-child(9), .testimonials, .clients, .register {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.showcase, .motto, .trainers {
+.showcase, .motto, .trainers, .testimonials, .clients, .register {
   padding: 6vh 4vw;
 }
 
-.motto__content--title, .features__content--title, .trainers__title {
+.motto__content--title, .features__content--title, .trainers__title, .testimonials__title, .clients__title {
   font-size: calc(1.5rem + 2vw);
   font-weight: 300;
   letter-spacing: 0.2rem;
   color: var(--color-quinary);
 }
 
-.motto__content--para, .features__content--para {
+.motto__content--para, .features__content--para, .testimonials__content--text__para {
   font-size: calc(1.2rem + 0.5vw);
   color: var(--color-quinary);
   font-family: "Balsamiq Sans", cursive;
   letter-spacing: 0.2rem;
 }
 
-.trainers__content--card__name {
+.trainers__content--card__name, .testimonials__content--text__name {
   font-size: calc(1.2rem + 0.5vw);
   color: var(--color-quinary);
 }
