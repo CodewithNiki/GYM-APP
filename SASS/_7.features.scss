@@ -1,7 +1,7 @@
 .features{
   grid-column: container-start / container-end;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
 
   &__content{
     display: grid;
