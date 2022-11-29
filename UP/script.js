@@ -109,4 +109,21 @@ submitBtn.addEventListener("click", ()=>{
     alert("Your Form Has Been Successfully Submitted. Thank You!");
     location.reload();
   }, 1000);
+});
+
+// Scroll Section
+const scroll = document.querySelector(".scroll");
+window.addEventListener("scroll", ()=>{
+  scroll.classList.toggle("active", window.scrollY > 200)
+});
+
+function scrollToTop(){
+  window.scrollTo({
+    top: 0,
+    behaviour: "smooth"
+  })
+};
+
+scroll.addEventListener("click",()=>{
+  scrollToTop()
 })
