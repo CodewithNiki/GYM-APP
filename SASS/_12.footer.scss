@@ -1,0 +1,156 @@
+.footer{
+    grid-column: container-start / container-end;
+    @extend %sec-padding;
+    @extend %bg;
+    background: linear-gradient(
+        var(--color-tertiary-m),
+        var(--color-tertiary-m)
+    ),
+    url("../img/footer/footer-bg.jpg");
+
+   display: grid;
+   grid-template-rows: repeat(3, max-content);
+   grid-gap: 8vh;
+
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 25rem);
+        place-content: center;
+        grid-gap: 10rem 4vw;
+
+        &--section{
+            display: grid;
+            grid-row-gap: 1.5rem;
+
+            &__heading{
+                @extend %sec-h3;
+            }
+
+            &__links:link,
+            &__links:visited{
+                display: block;
+                letter-spacing: initial;
+
+                a:link,
+                a:visited{
+                    font-size: calc(1.2rem + 0.5vw);
+                    font-weight: 300;
+                }
+            }
+
+            &__para{
+                font-size: calc(1.2rem + 0.5vw);
+                color: var(--color-quinary);          
+            }
+
+            input[type = "email"]{
+                height: 4rem;
+                background-color: transparent;
+                color: var(--color-quinary);
+                border: none;
+                border-top: 0.1rem solid var(--color-quinary);
+                border-left: 0.1rem solid var(--color-quinary);
+                padding: 0 1rem;
+            }
+
+            button{
+                height: 4rem;
+                background-color: transparent;
+                color: var(--color-quinary);
+                cursor: pointer;
+                transition: all 0.5s ease-in-out;
+            }
+
+            button:hover,
+            button:active{
+                background-color: white;
+                color: black;
+            }
+        }
+
+        &--section:nth-child(1), 
+        &--section:nth-child(2),
+        &--section:nth-child(3){
+            border-right: 0.1rem solid var(--color-quinary);
+        }
+
+        &--section:nth-child(3){
+            padding-right: 4vw;
+        }
+
+        &--section:nth-child(4){
+            padding-bottom: 4vw;
+            border-bottom: 0.1rem solid var(--color-quinary);
+        }
+    }
+
+    &__logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            width: 5rem;
+            height: 5rem;
+        }
+        span{
+            font-size: 2.5rem;
+            color: var(--color-quinary);
+            letter-spacing: 0.3rem;
+            font-family: cursive;
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__social{
+        display: flex;
+        justify-content: space-between;
+
+        &--number{
+            font-size: calc(1.2rem + 0.5vw);
+            color: var(--color-quinary);
+        }
+
+        &--icons{
+            display: flex;
+
+            &__link:link,
+            &__link:visited{
+                width: 3rem;
+                height: 3rem;
+                margin-right: calc(0.5rem + 2vw);
+                border: 0.1rem solid var(--color-quinary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2.5rem;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__link:link::before,
+            &__link:link::after,
+            &__link:visited::before,
+            &__link:visited::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: var(--color-quinary);
+                border-radius: 50%;
+                z-index: -1;
+                transform: scale(0);
+                transform-origin: center;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            &__link:hover::before,
+            &__link:hover::after,
+            &__link:active::before,
+            &__link:active::after{
+                transform: scale(1);
+            }
+        }
+    }
+}

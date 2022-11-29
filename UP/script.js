@@ -44,3 +44,69 @@ for(let i=0; i<slider.length; i++){
    indicator[i].classList.add("indicator");
   })
 }
+
+// Register section
+const slidePage = document.querySelector(".register__content--form__page");
+const firstNextBtn = document.querySelector(".next-1");
+const secondNextBtn = document.querySelector(".next-2");
+const thirdNextBtn = document.querySelector(".next-3");
+const firstPrevBtn = document.querySelector(".prev-1");
+const secondPrevBtn = document.querySelector(".prev-2");
+const thirdPrevBtn = document.querySelector(".prev-3");
+const submitBtn = document.querySelector(".submit");
+const progress = document.querySelectorAll(".register__progress--step");
+const progressSpan = document.querySelectorAll(".register__progress--step span");
+const progressIcon = document.querySelectorAll(".register__progress--step i");
+
+let current = 1;
+
+function tick(){
+  progress[current - 1].classList.add("active");
+  progressSpan[current - 1].classList.add("active");
+  progressIcon[current - 1].classList.add("active");
+  current += 1;
+}
+
+function untick(){
+  progress[current - 2].classList.remove("active");
+  progressSpan[current - 2].classList.remove("active");
+  progressIcon[current - 2].classList.remove("active");
+  current -= 1;
+}
+
+firstNextBtn.addEventListener("click", ()=>{
+  slidePage.style.marginLeft = "-33%";
+  tick();
+});
+
+firstPrevBtn.addEventListener("click", ()=>{
+  slidePage.style.marginLeft = "0";
+  untick();
+})
+
+secondPrevBtn.addEventListener("click", ()=>{
+  slidePage.style.marginLeft = "-33%";
+  untick();
+})
+
+secondNextBtn.addEventListener("click", ()=>{
+  slidePage.style.marginLeft = "-100%";
+  tick();
+});
+
+thirdNextBtn.addEventListener("click", ()=>{
+  slidePage.style.marginLeft = "-200%";
+  tick();
+});
+
+thirdPrevBtn.addEventListener("click", ()=>{
+  slidePage.style.marginLeft = "-100%";
+  untick();
+});
+
+submitBtn.addEventListener("click", ()=>{
+  setTimeout(() => {
+    alert("Your Form Has Been Successfully Submitted. Thank You!");
+    location.reload();
+  }, 1000);
+})

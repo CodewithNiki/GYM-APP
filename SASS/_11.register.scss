@@ -3,5 +3,122 @@
   grid-column: container-start / container-end;
   @extend %bg;
   @extend %sec-padding;
-  height: 600px;
+  color: var(--color-quinary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+
+  &__progress{
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    grid-column-gap: 2vh;
+
+    &--step{
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      background-color: var(--color-tertiary-m);
+      padding: 1rem;
+      font-size: 2rem;
+      text-align: center;
+      position: relative;
+
+      i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: font-size(font-size-small);
+        display: none;
+      }
+
+      i.active{
+        display: block;
+        background-color: var(--color-quinary);
+      }
+
+      span.active{
+        display: none;
+      }
+    }
+
+    &--step.active{
+      background-color: var(--color-quinary);
+    }
+  }
+
+  &__content{
+    width: 28rem;
+    margin-top: 2rem;
+    overflow: hidden;
+
+    &--form{
+      display: flex;
+      width: 400%;
+      justify-content: center;
+
+      &__page{
+        width: 50%;
+        display: grid;
+        grid-template-rows: repeat(3, 7rem);
+        grid-row-gap: 4rem;
+        align-items: start;
+        transition: margin 0.5s ease-in-out;
+
+        &--field{
+          width: 28rem;
+          height: 4rem;
+
+          label{
+            font-size: 2rem;
+          }
+
+          input,
+          select{
+            width: 100%;
+            height: 100%;
+            padding-left: 1rem;
+            border: none;
+            outline: none;
+            background-color: var(--color-quinary-m);
+            color: var(--color-quinary);
+            font-size: 1.8rem;
+          }
+
+          select{
+            color: black;
+          }
+
+          input:focus{
+            background-color: var(--color-secondary-m);
+          }
+
+          button{
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-tertiary-m);
+            border: none;
+            outline: none;
+            font-size: 2rem;
+            color: var(--color-quinary);
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+          }
+
+          button:hover,
+          button:active{
+            background-color: var(--color-primary);
+          }
+        }
+
+        .btns{
+          display: grid;
+          grid-template-columns: repeat(2,14rem);
+          grid-gap: 1rem;
+        }
+      }
+    }
+  }
 }
