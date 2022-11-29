@@ -760,6 +760,85 @@ i {
   background-image: url("../img/features/features-9.jpg");
 }
 
+.trainers {
+  grid-column: center-start / center-end;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.trainers__title {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: var(--color-tertiary-m);
+  border-bottom-left-radius: 8rem;
+  border-bottom-right-radius: 8rem;
+}
+
+.trainers__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 6vh calc(1rem + 1vw);
+  place-items: center;
+}
+
+.trainers__content--card {
+  display: grid;
+  position: relative;
+  height: 30rem;
+  width: 30rem;
+  overflow: hidden;
+}
+
+.trainers__content--card__specialty, .trainers__content--card__name {
+  position: absolute;
+  bottom: 20%;
+  left: 5%;
+  transform: translate(-25rem, -15rem);
+}
+
+.trainers__content--card__name {
+  bottom: 25%;
+}
+
+.trainers__content--card__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.trainers__content--card:hover .trainers__content--card__img,
+.trainers__content--card:active .trainers__content--card__img {
+  filter: contrast(30%);
+}
+
+.trainers__content--card:hover .trainers__content--card__specialty,
+.trainers__content--card:active .trainers__content--card__specialty,
+.trainers__content--card:hover .trainers__content--card__name,
+.trainers__content--card:active .trainers__content--card__name {
+  animation: name 1.5s linear forwards;
+  z-index: 1;
+}
+
+@keyframes name {
+  0% {
+    transform: translate(-25rem, -15rem);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(8rem, -15rem);
+    opacity: 0.3;
+  }
+  60% {
+    transform: translate(8rem, 0rem);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
 .testimonials {
   grid-column: container-start / container-end;
   background: linear-gradient(var(--color-tertiary-m), var(--color-tertiary-m)), url("../img/testimonials/testimonials-bg.jpg");
@@ -1152,11 +1231,11 @@ i {
   background-position: center;
 }
 
-.showcase, .motto, .testimonials, .clients, .register, .footer {
+.showcase, .motto, .trainers, .testimonials, .clients, .register, .footer {
   padding: 6vh 4vw;
 }
 
-.motto__content--title, .features__content--title, .testimonials__title, .clients__title {
+.motto__content--title, .features__content--title, .trainers__title, .testimonials__title, .clients__title {
   font-size: calc(1.5rem + 2vw);
   font-weight: 300;
   letter-spacing: 0.2rem;
@@ -1170,8 +1249,12 @@ i {
   letter-spacing: 0.2rem;
 }
 
-.testimonials__content--text__name, .footer__content--section__heading {
+.trainers__content--card__name, .testimonials__content--text__name, .footer__content--section__heading {
   font-size: calc(1.2rem + 0.5vw);
+  color: var(--color-quinary);
+}
+
+.trainers__content--card__specialty {
   color: var(--color-quinary);
 }
 
