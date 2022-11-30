@@ -223,7 +223,7 @@ i {
 }
 
 .header__nav--links__toggle-container input:checked[type="checkbox"]::after {
-  right: 38%;
+  right: 37%;
   box-shadow: none;
 }
 
@@ -1183,6 +1183,7 @@ i {
 .footer__social {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .footer__social--number {
@@ -1203,7 +1204,7 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem;
+  padding: calc(1.5rem + 1vw);
   position: relative;
   z-index: 1;
 }

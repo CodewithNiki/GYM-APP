@@ -105,6 +105,7 @@
     &__social{
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         &--number{
             font-size: calc(1.2rem + 0.5vw);
@@ -124,7 +125,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 2.5rem;
+                padding: calc(1.5rem + 1vw);
                 position: relative;
                 z-index: 1;
             }

@@ -9,8 +9,10 @@ menu.addEventListener("click", () => {
   overlay.classList.toggle("open");
 });
 
+// ****Changing the theme ***
 let checkbox = document.querySelector('input[name="theme"]');
 let htmlElement = document.documentElement;
+console.log(htmlElement);
 
 checkbox.addEventListener("change", () => {
   if (checkbox.checked) {
